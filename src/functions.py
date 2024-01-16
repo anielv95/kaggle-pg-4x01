@@ -5,8 +5,8 @@ import pandas as pd
 
 def base_line(df: pd.DataFrame):
     pred = df.copy()
-    pred[["Status_C", "Status_CL", "Status_D"]] = [0.628084, 0.034788, 0.337128]
-    return pred[["id", "Status_C", "Status_CL", "Status_D"]]
+    pred["Exited"] = 0.5
+    return pred[["id", "Exited"]]
 
 
 # def getting_csv(prediction):
