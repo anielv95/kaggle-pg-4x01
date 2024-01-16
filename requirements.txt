@@ -1,0 +1,16 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+gunicorn
+
+pytest
+click
+pylint
+pytest-cov
+black
+ipykernel
+pipenv
+flask
+requests
