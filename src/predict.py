@@ -1,34 +1,33 @@
+import pickle
+
 from flask import Flask
 from flask import request
 from flask import jsonify
-import pickle
 
-app = Flask("base-line-model")
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import OneHotEncoder,StandardScaler
+import zipfile
 
+target = "Exited"
+model_file = './models/sgd-classifier-dv-20240125.bin'
 
-@app.route("/predict", methods=["POST"])
+with open(model_file, 'rb') as f_in: 
+    dv, model = pickle.load(f_in)
+
+app = Flask('churn')
+
+@app.route('/predict', methods=['POST'])
 def predict():
     customer = request.get_json()
 
-    # X = dv.transform([customer])
-    # y_pred = model.predict_proba(X)[0, 1]
-    # churn = y_pred >= 0.5
-    output_file = "sgd-classifier.bin"
-    with open(output_file, "rb") as f_in:
-        dv, model = pickle.load(f_in)
-
     X = dv.transform([customer])
-    y_pred = model.predict_proba(X)
+    y_pred = model.predict_proba(X)[0, 1]
 
     result = {
-        "id": customer["id"],
-        "Status_C": y_pred[0, 0],
-        "Status_CL": y_pred[0, 1],
-        "Status_D": y_pred[0, 2],
+        'churn_probability': float(y_pred),
     }
 
     return jsonify(result)
 
-
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=9695)
+    app.run(debug=True, host='0.0.0.0', port=9695)
