@@ -1,4 +1,4 @@
-# Kaggle - Playground Series - Multi-Class Prediction of Cirrhosis Outcomes
+# Kaggle - Playground Series - Binary Classification with a Bank Churn Dataset
 
 ## Problem Description
 
