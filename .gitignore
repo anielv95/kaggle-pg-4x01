@@ -160,6 +160,6 @@ cython_debug/
 #.idea/
 
 gitname.sh
-data/
+#data/
 initkaggle.sh
 initcompetition.sh

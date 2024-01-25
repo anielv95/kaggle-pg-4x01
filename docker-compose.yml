@@ -1,0 +1,8 @@
+version: "3"
+services:
+  app:
+    build: .
+    container_name: python-server
+    entrypoint: gunicorn --bind 0.0.0.0:9695 predict:app
+    ports:
+      - 9695:9695

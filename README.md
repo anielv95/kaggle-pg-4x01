@@ -23,6 +23,14 @@ After that requirement matched you just need to execute inside the repository fo
 
 1. docker-compose up
 
+To test the deployment you just need to go inside the repository folder and execute:
+
+1. python ./src/predict-test.py
+
+Additionally, there is a file to create the trained model, .src/train.py, as the trained model is in the repository it's not mandatory to execute 
+
+1. python ./src/train.py
+
 ## Setting environment
 
 If you want to execute the notebooks/eda.ipynb notebook you need to create a virtual environment and then install the packages, for Linux:
@@ -36,3 +44,4 @@ For windows users:
 1. python -m virtualenv my_virtual_environment_name
 2. .\my_virtual_environment_name\Scripts\Activate
 3. python -m pip install -r requirements.txt
+
