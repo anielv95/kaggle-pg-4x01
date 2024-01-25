@@ -45,3 +45,7 @@ For windows users:
 2. .\my_virtual_environment_name\Scripts\Activate
 3. python -m pip install -r requirements.txt
 
+
+## Executing eda.ipynb
+
+To execute the notebook succesfully you need to change the repository folder path in the first cell in notebooks/eda.ipynb to your specific case. 
