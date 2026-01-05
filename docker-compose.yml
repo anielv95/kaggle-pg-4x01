@@ -1,13 +1,16 @@
-version: "3"
 services:
   model:
-    image: model:latest
+    build: 
+      dockerfile: ./services/predict/predict.dockerfile
+      #image: model:latest
     container_name: python-server
-    entrypoint: gunicorn --bind 0.0.0.0:9695 predict:app
+    entrypoint: gunicorn --bind 0.0.0.0:9695 predict_model:app
     ports:
       - 9695:9695
   prep:
-    image: prep:latest
+    build: 
+      dockerfile: ./services/prep/prep.dockerfile
+      #image: prep:latest
     container_name: python-prep
     entrypoint: gunicorn --bind 0.0.0.0:9695 predict_prep:app
     ports:

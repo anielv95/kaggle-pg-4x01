@@ -163,3 +163,5 @@ gitname.sh
 #data/
 initkaggle.sh
 initcompetition.sh
+*.swp
+*venv
