@@ -163,3 +163,7 @@ gitname.sh
 #data/
 initkaggle.sh
 initcompetition.sh
+*venv
+*.swp
+*terraform.tfstate*
+*.terraform
