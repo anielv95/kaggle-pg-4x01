@@ -167,3 +167,4 @@ initcompetition.sh
 *.swp
 *terraform.tfstate*
 *.terraform
+*variables.tf

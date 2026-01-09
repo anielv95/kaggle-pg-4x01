@@ -14,3 +14,11 @@ resource "aws_instance" "web" {
   }
 }
 
+resource "aws_vpc_security_group_ingress_rule" "example" {
+  security_group_id = var.security_group_id
+
+  cidr_ipv4   = var.public_ip
+  from_port   = 22
+  ip_protocol = "tcp"
+  to_port     = 22
+}
