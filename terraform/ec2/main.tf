@@ -22,3 +22,12 @@ resource "aws_vpc_security_group_ingress_rule" "example" {
   ip_protocol = "tcp"
   to_port     = 22
 }
+
+resource "aws_vpc_security_group_ingress_rule" "jupyterlab-rule" {
+  security_group_id = var.security_group_id
+
+  cidr_ipv4   = var.public_ip
+  from_port   = 8888
+  ip_protocol = "tcp"
+  to_port     = 8888
+}
