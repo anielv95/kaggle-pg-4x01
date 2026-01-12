@@ -5,12 +5,12 @@ resource "aws_key_pair" "my_key_pair" {
 
 
 resource "aws_instance" "web" {
-  ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-minimal-kernel-default-x86_64"
-  instance_type = "t2.micro"
+  ami           = var.official_debian_ami
+  instance_type = var.instance_type
   key_name      = aws_key_pair.my_key_pair.key_name
 
   tags = {
-    Name = "t2micro"
+    Name = var.instance_type
   }
 }
 
